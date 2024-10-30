@@ -7,23 +7,29 @@ import App from "./App";
 
 import Home from "./assets/pages/Home";
 import About from "./assets/pages/About";
+import Article from "./assets/pages/Articles";
 
 // router creation
 
 const router = createBrowserRouter([
-  {
-    element: <App />,
-    children: [
-      {
-        path: "/",
-        element: <Home />,
-      },
-      {
-        path: "/about",
-        element: <About />,
-      },
-    ],
-  },
+	{
+		element: <App />,
+		children: [
+			{
+				path: "/",
+				element: <Home />,
+			},
+			{
+				path: "/about",
+				element: <About />,
+			},
+			{
+				path: "/articles/:id",
+				element: <Article />,
+			},
+      
+		],
+	},
 ]);
 
 // rendering
@@ -31,8 +37,5 @@ const router = createBrowserRouter([
 const rootElement = document.getElementById("root");
 
 if (rootElement != null) {
-  ReactDOM.createRoot(rootElement).render(
-    <RouterProvider router={router} />
-  );
+	ReactDOM.createRoot(rootElement).render(<RouterProvider router={router} />);
 }
-
